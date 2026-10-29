@@ -1,55 +1,90 @@
 {
-    "source": "google_places_api_new",
-    "fetched_at": "2026-10-29 16:37:42",
+    "source": "serpapi_google_maps_reviews_automated",
+    "synced_at": "2026-10-29 17:27:03",
     "business_name": "JAISRIE MARKETING (SIVAKASI SOLAR)",
     "rating": 4.5,
     "user_ratings_total": 27,
-    "google_maps_url": "https:\/\/maps.google.com\/?cid=11739550566793279099&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+    "google_maps_url": "https:\/\/maps.google.com\/?cid=11739550566793279099",
     "reviews": [
         {
-            "author_name": "Rajaram R",
-            "author_url": "https:\/\/www.google.com\/maps\/contrib\/114691730589395254848\/reviews",
-            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJY0RZz5Lv96psn0QIFu8ennxsqHUhyIYPqbxosjnoNYYmmGg=s128-c0x00000000-cc-rp-mo",
-            "rating": 1,
-            "relative_time_description": "11 months ago",
-            "text": "Don't ever buy any equipments from this person. I have bought many Solar equipments from him. His service is horrible. I had a problem with my Solar Heater bought from him. 12 days back I had leakage problem. I complained to him. He asked to send video & pics. Next day I asked when he will attend to the problem. He said he didn't get my video, though I sent and whatsapp showed as delivered...\nTill today (12days) he has not even come to see the equipment. Problem still not attended. Even though I invested in a solar heater, I'm forced to have bath in freezing cold water, during this winter time and he is absolutely not bothered to carry out the repairs....\nPLEASE NEVER BUY ANY SOLAR EQUIPMENTS, FROM THIS SUPPLIER........",
-            "time": 1764012024
-        },
-        {
             "author_name": "Benedict Jebakumar",
-            "author_url": "https:\/\/www.google.com\/maps\/contrib\/109225039406456536575\/reviews",
-            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJCeDWAr2pLdhA6ipdJrMZeWRAbXuBFpYkSKA5EePa6r0rFKg=s128-c0x00000000-cc-rp-mo",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/109225039406456536575?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJCeDWAr2pLdhA6ipdJrMZeWRAbXuBFpYkSKA5EePa6r0rFKg=s120-c-rp-mo-br100",
             "rating": 5,
             "relative_time_description": "4 years ago",
             "text": "I had opted for Solar operated motor pump solution from Jaisrie Marketing for my new farm. It's been almost a year and the plants in the farm has come up well using ONLY the Solar solution provided by Jaisrie Marketing. We don't have an EB connection at our farm and the Solar solution works perfectly fine.\nThank you Jaisrie Marketing.",
+            "likes": 1,
             "time": 1664458896
         },
         {
             "author_name": "Exercise is a Medicine Natural Medicine",
-            "author_url": "https:\/\/www.google.com\/maps\/contrib\/114861478303172326118\/reviews",
-            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a-\/ALV-UjWRL_C3rVll0jPeA4a431ummEVw3DTC7J--UkDCzbcqWmCLeT0=s128-c0x00000000-cc-rp-mo-ba2",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/114861478303172326118?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a-\/ALV-UjWRL_C3rVll0jPeA4a431ummEVw3DTC7J--UkDCzbcqWmCLeT0=s120-c-rp-mo-ba12-br100",
             "rating": 5,
             "relative_time_description": "2 years ago",
             "text": "Really good work done by them.Good service too..Excellent follow up service also... Thank u sir...",
+            "likes": 0,
             "time": 1728985016
         },
         {
-            "author_name": "MURARI KUMAR",
-            "author_url": "https:\/\/www.google.com\/maps\/contrib\/114772320143713764632\/reviews",
-            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJsh2S38NRvT7zJPNFlyY4vcrjmQwYSQieBn-Z_0ezeZXKm9g=s128-c0x00000000-cc-rp-mo",
+            "author_name": "Ramalingam Sankar",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/102456216600570794906?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a-\/ALV-UjXS28NV2QntKbNEzzSzmgbzFJWiBULxGJrECVNA1HoUKzvlzxz4=s120-c-rp-mo-br100",
             "rating": 5,
-            "relative_time_description": "7 months ago",
-            "text": "Good work",
-            "time": 1774354358
+            "relative_time_description": "a month ago",
+            "text": "உங்களின் தேவைக்கேற்ப மட்டுமே நல்ல முறையில் சோலார் நிறுவித் தருகிறார்கள். Highly recommended...",
+            "likes": 0,
+            "time": 1789639971
         },
         {
             "author_name": "Manohar Natarajan",
-            "author_url": "https:\/\/www.google.com\/maps\/contrib\/115415278810343969420\/reviews",
-            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJnSn0OaghDzxTDqlkSFM32M7Y09oyp8OU4NYny_9svMmmk_w=s128-c0x00000000-cc-rp-mo",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/115415278810343969420?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJnSn0OaghDzxTDqlkSFM32M7Y09oyp8OU4NYny_9svMmmk_w=s120-c-rp-mo-br100",
             "rating": 5,
             "relative_time_description": "2 years ago",
             "text": "They have done their works correctly and\nQuickly .Thanks for their team work",
+            "likes": 0,
             "time": 1728982018
+        },
+        {
+            "author_name": "Maha",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/112233468137071227087?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocLIcred7oHZgKLyMR5bdwaozuH5Lmpih8XYYJG8O4kwd6jB4Q=s120-c-rp-mo-br100",
+            "rating": 5,
+            "relative_time_description": "Edited a month ago",
+            "text": "Reduce current bill upto 90%",
+            "likes": 0,
+            "time": 1763106550
+        },
+        {
+            "author_name": "Maria Adaikala Raj",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/116465630964524647584?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a-\/ALV-UjVEqcsqp5UscNBbKaKOLqKnZpRfWAdnaZEeJc6rZxo1c9Y129CP=s120-c-rp-mo-ba12-br100",
+            "rating": 5,
+            "relative_time_description": "7 months ago",
+            "text": "Reduce upto 90% EB Bill",
+            "likes": 0,
+            "time": 1774353109
+        },
+        {
+            "author_name": "MURARI KUMAR",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/114772320143713764632?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a\/ACg8ocJsh2S38NRvT7zJPNFlyY4vcrjmQwYSQieBn-Z_0ezeZXKm9g=s120-c-rp-mo-br100",
+            "rating": 5,
+            "relative_time_description": "7 months ago",
+            "text": "Good work",
+            "likes": 0,
+            "time": 1774354358
+        },
+        {
+            "author_name": "r albert nicxon",
+            "author_url": "https:\/\/www.google.com\/maps\/contrib\/109515785338996760699?hl=en",
+            "profile_photo_url": "https:\/\/lh3.googleusercontent.com\/a-\/ALV-UjXUizXjur7OMSAX8XE3B5K1x2U8OiRX6zDbByaITDO18zkk53Wr=s120-c-rp-mo-br100",
+            "rating": 5,
+            "relative_time_description": "5 months ago",
+            "text": "Good",
+            "likes": 0,
+            "time": 1779950913
         }
     ]
 }
