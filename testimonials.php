@@ -5,6 +5,15 @@ $active_page = 'testimonials';
 $canonical_url = 'https://www.jaisriemarketing.com/testimonials.php';
 $extra_scripts = ['asset/js/slider.js'];
 
+// Load cached Google Reviews
+$reviews_file = __DIR__ . '/data/reviews.json';
+$google_data = file_exists($reviews_file) ? json_decode(file_get_contents($reviews_file), true) : null;
+$google_rating = !empty($google_data['rating']) ? number_format($google_data['rating'], 1) : '4.5';
+$google_total = $google_data['user_ratings_total'] ?? 27;
+$google_maps_url = !empty($google_data['google_maps_url']) ? $google_data['google_maps_url'] : 'https://maps.google.com/?cid=11739550566793279099';
+$google_write_review_url = 'https://search.google.com/local/writereview?placeid=ChIJ86zUYazPBjsRe_ZyrApD66I';
+$google_reviews = $google_data['reviews'] ?? [];
+
 include 'includes/header.php';
 ?>
 
@@ -26,8 +35,8 @@ include 'includes/header.php';
         <div class="stat-label">Happy Customers</div>
       </div>
       <div class="stat-card" data-reveal>
-        <div class="stat-number"><span data-counter="4.9" data-suffix="">0</span></div>
-        <div class="stat-label">Customer Rating</div>
+        <div class="stat-number"><span data-counter="<?= $google_rating ?>" data-suffix=" ★">0</span></div>
+        <div class="stat-label">Google Rating (<?= $google_total ?>+ Reviews)</div>
       </div>
       <div class="stat-card" data-reveal>
         <div class="stat-number"><span data-counter="98" data-suffix="%">0</span></div>
@@ -197,68 +206,110 @@ include 'includes/header.php';
   </div>
 </section>
 
-<!-- ============ GOOGLE REVIEW STYLE LAYOUT ============ -->
+<!-- ============ GOOGLE REVIEWS SECTION ============ -->
 <section class="section section--off-white" id="google-reviews">
   <div class="container">
     <div class="section-head section-head--center">
-      <span class="eyebrow">On Google</span>
-      <h2>Reviews from around the web</h2>
+      <span class="eyebrow">Verified Customer Feedback</span>
+      <h2>Official Google Reviews</h2>
+      <p>Real ratings and reviews directly from our Google Business Profile.</p>
     </div>
+
+    <!-- Google Trust & Rating Summary Bar -->
+    <div class="google-trust-card" data-reveal>
+      <div class="google-trust-left">
+        <div class="google-g-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.04h3.88c2.28-2.1 3.66-5.2 3.66-9.14z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.04c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.94H1.26v3.13C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.6H1.26C.46 8.2.01 10.04.01 12c0 1.96.45 3.8 1.25 5.4l4.02-3.13z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.26 6.6l4.02 3.13c.95-2.84 3.6-4.98 6.72-4.98z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="google-rating-score">
+            <span><?= $google_rating ?></span>
+            <div class="stars" aria-label="<?= $google_rating ?> out of 5 stars">
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+            </div>
+          </div>
+          <div class="google-rating-meta">
+            Based on <strong><?= $google_total ?>+ reviews</strong> on Google Maps for <em>Jaisrie Marketing</em>
+          </div>
+        </div>
+      </div>
+      <div class="google-trust-actions">
+        <a href="<?= htmlspecialchars($google_write_review_url) ?>" target="_blank" rel="noopener" class="btn-google-write">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Write a Review
+        </a>
+        <a href="<?= htmlspecialchars($google_maps_url) ?>" target="_blank" rel="noopener" class="btn-google-maps">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- Review Cards Grid -->
     <div class="grid grid-3">
+      <?php
+      $avatar_colors = ['#1a73e8', '#1e8e3e', '#d93025', '#f29900', '#9334e6', '#00897b'];
+      $displayed_count = 0;
+      foreach ($google_reviews as $idx => $rev):
+        if (!empty($rev['rating']) && $rev['rating'] < 4) continue;
+        $name = $rev['author_name'] ?? 'Google Customer';
+        $rating = intval($rev['rating'] ?? 5);
+        $time_desc = $rev['relative_time_description'] ?? '';
+        $text = trim($rev['text'] ?? '');
+        $photo = $rev['profile_photo_url'] ?? '';
+        $initial = mb_substr($name, 0, 1);
+        $bg_color = $avatar_colors[$displayed_count % count($avatar_colors)];
+        $displayed_count++;
+      ?>
       <div class="card review-card" data-reveal>
-        <div class="review-head">
-          <img class="review-avatar" src="https://randomuser.me/api/portraits/men/12.jpg" alt="Reviewer avatar" loading="lazy" width="46" height="46">
-          <div>
-            <div class="review-name">Vignesh T.</div>
-            <div class="review-date">2 weeks ago</div>
+        <svg class="review-card-g-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.04h3.88c2.28-2.1 3.66-5.2 3.66-9.14z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.04c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.94H1.26v3.13C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.6H1.26C.46 8.2.01 10.04.01 12c0 1.96.45 3.8 1.25 5.4l4.02-3.13z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.26 6.6l4.02 3.13c.95-2.84 3.6-4.98 6.72-4.98z"/>
+        </svg>
+
+        <div>
+          <div class="review-head">
+            <?php if (!empty($photo)): ?>
+              <img class="review-avatar" src="<?= htmlspecialchars($photo) ?>" alt="<?= htmlspecialchars($name) ?>" loading="lazy" width="46" height="46" referrerpolicy="no-referrer">
+            <?php else: ?>
+              <div class="review-avatar" style="background: <?= $bg_color ?>;"><?= htmlspecialchars($initial) ?></div>
+            <?php endif; ?>
+            <div>
+              <div class="review-name"><?= htmlspecialchars($name) ?></div>
+              <?php if (!empty($time_desc)): ?>
+                <div class="review-date"><?= htmlspecialchars($time_desc) ?></div>
+              <?php endif; ?>
+              <div class="review-badge-verified">
+                <svg viewBox="0 0 20 20"><path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/></svg>
+                Verified Google Review
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-        </div>
-        <p class="review-text mt-24">Professional team, fair pricing and quick installation. Highly recommend for anyone considering rooftop solar in Sivakasi.</p>
-      </div>
-      <div class="card review-card" data-reveal>
-        <div class="review-head">
-          <img class="review-avatar" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Reviewer avatar" loading="lazy" width="46" height="46">
-          <div>
-            <div class="review-name">Deepa S.</div>
-            <div class="review-date">1 month ago</div>
+
+          <div class="stars" aria-label="<?= $rating ?> out of 5 stars">
+            <?php for ($s = 0; $s < $rating; $s++): ?>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
+            <?php endfor; ?>
           </div>
+
+          <p class="review-text"><?= nl2br(htmlspecialchars($text)) ?></p>
         </div>
-        <div class="stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-        </div>
-        <p class="review-text mt-24">From the site survey to final testing, everything was well communicated. Our bill has dropped noticeably every month since.</p>
       </div>
-      <div class="card review-card" data-reveal>
-        <div class="review-head">
-          <img class="review-avatar" src="https://randomuser.me/api/portraits/men/61.jpg" alt="Reviewer avatar" loading="lazy" width="46" height="46">
-          <div>
-            <div class="review-name">Prakash M.</div>
-            <div class="review-date">3 months ago</div>
-          </div>
-        </div>
-        <div class="stars" aria-label="4 out of 5 stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4L15.6 18 10 14.7 4.4 18l1.4-6.1L1 6.5l6.4-.6L10 1z"/></svg>
-        </div>
-        <p class="review-text mt-24">Good service overall, installation was neat and the team cleaned up after themselves. Would use them again for our second building.</p>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
-
 <!-- ============ CTA ============ -->
 <section class="cta-section">
   <div class="hero-bg" style="background-image:url('https://images.pexels.com/photos/16659262/pexels-photo-16659262.jpeg?auto=compress&cs=tinysrgb&w=1600');" role="img" aria-label="Solar farm background"></div>
